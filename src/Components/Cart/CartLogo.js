@@ -65,7 +65,7 @@ function CartLogo() {
               <span className={classes.cartitem} key={prod._id}>
                 {console.log(prod, "===prod")}
                 <img
-                  src={`http://fake-comb.herokuapp.com${prod.productId?.image}`}
+                  src={`https://fake-comb.herokuapp.com${prod.productId?.image}`}
                   className={classes.image}
                   alt={prod.name}
                 />

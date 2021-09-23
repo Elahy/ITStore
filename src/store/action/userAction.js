@@ -48,7 +48,7 @@ export const requestUserList = () => {
     const token = signInStore.token;
     const response = await axios({
       method: "GET",
-      url: "http://fake-comb.herokuapp.com/user",
+      url: "https://fake-comb.herokuapp.com/user",
       headers: { authorization: `bearer ${token}` },
     });
     dispatch(setListofUser(response.data));
@@ -62,7 +62,7 @@ export const requestUserDetails = (userId) => {
     const token = signInStore.token;
     const response = await axios({
       method: "GET",
-      url: `http://fake-comb.herokuapp.com/user/${userId}`,
+      url: `https://fake-comb.herokuapp.com/user/${userId}`,
       headers: { authorization: `bearer ${token}` },
     });
     dispatch(setCurrentUser(response.data));
@@ -76,7 +76,7 @@ export const requestDeleteUser = (userId) => {
     const token = signInStore.token;
     const response = await axios({
       method: "DELETE",
-      url: `http://fake-comb.herokuapp.com/user/${userId}`,
+      url: `https://fake-comb.herokuapp.com/user/${userId}`,
       headers: { authorization: `bearer ${token}` },
     });
     dispatch(deleteUser(response));
@@ -89,7 +89,7 @@ export const requestEditUser = (user) => {
     const { signInStore } = getState();
     const token = signInStore.token;
     const response = await axios.patch(
-      `http://fake-comb.herokuapp.com/user/${user._id}`,
+      `https://fake-comb.herokuapp.com/user/${user._id}`,
       {
         address: {
           geolocation: {
@@ -127,7 +127,7 @@ export const requestAddUser = (user) => {
       const { signInStore } = getState();
       const token = signInStore.token;
       const response = await axios.post(
-        "http://fake-comb.herokuapp.com/user",
+        "https://fake-comb.herokuapp.com/user",
         {
           address: {
             geolocation: {
@@ -164,7 +164,7 @@ export const requestMyInfo = () => {
     const token = signInStore.token;
     const response = await axios({
       method: "GET",
-      url: `http://fake-comb.herokuapp.com/my-detail`,
+      url: `https://fake-comb.herokuapp.com/my-detail`,
       headers: { authorization: `bearer ${token}` },
     });
     dispatch(setMyInfo(response.data));

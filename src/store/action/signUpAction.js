@@ -11,7 +11,7 @@ export const requestSignUp = (user) => {
   return async (dispatch) => {
     try {
       const response = await axios.post(
-        "http://fake-comb.herokuapp.com/signup",
+        "https://fake-comb.herokuapp.com/signup",
         {
           address: {
             geolocation: {

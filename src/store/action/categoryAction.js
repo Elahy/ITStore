@@ -36,7 +36,7 @@ export const requestCategoryList = () => {
   return async (dispatch) => {
     const response = await axios({
       method: "GET",
-      url: "http://fake-comb.herokuapp.com/category",
+      url: "https://fake-comb.herokuapp.com/category",
     });
     dispatch(setListofCategory(response.data));
     console.log(response, "RESponse from GET Category List Action");
@@ -48,7 +48,7 @@ export const requestCategoryDetails = (categoryId) => {
   return async (dispatch) => {
     const response = await axios({
       method: "GET",
-      url: `http://fake-comb.herokuapp.com/category/${categoryId}`,
+      url: `https://fake-comb.herokuapp.com/category/${categoryId}`,
     });
 
     dispatch(setCurrentCategory(response.data));
@@ -62,7 +62,7 @@ export const requestDeleteCategory = (categoryId) => {
     const token = signInStore.token;
     const response = await axios({
       method: "DELETE",
-      url: `http://fake-comb.herokuapp.com/category/${categoryId}`,
+      url: `https://fake-comb.herokuapp.com/category/${categoryId}`,
       headers: { authorization: `bearer ${token}` },
     });
     dispatch(deleteCategory(response));
@@ -78,7 +78,7 @@ export const requestEditCategory = (category) => {
       console.log("requestEditProduct Call");
       const token = signInStore.token;
       const response = await axios.patch(
-        `http://fake-comb.herokuapp.com/category/${category._id}`,
+        `https://fake-comb.herokuapp.com/category/${category._id}`,
         {
           name: category.name,
           description: category.description,
@@ -102,7 +102,7 @@ export const requestAddCategory = (category) => {
       const { signInStore } = getState();
       const token = signInStore.token;
       const response = await axios.post(
-        "http://fake-comb.herokuapp.com/category",
+        "https://fake-comb.herokuapp.com/category",
         {
           name: category.name,
           description: category.description,

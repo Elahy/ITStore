@@ -122,7 +122,7 @@ function ProductList() {
                     <CardActionArea>
                       <CardMedia
                         className={classes.media}
-                        image={`http://fake-comb.herokuapp.com${product.image}`}
+                        image={`https://fake-comb.herokuapp.com${product.image}`}
                         title={product.title}
                         alt={product.title}
                       />

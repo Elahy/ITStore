@@ -127,7 +127,7 @@ function Products() {
                         className={classes.imageWrap}
                       >
                         <img
-                          src={`http://fake-comb.herokuapp.com${product?.image}`}
+                          src={`https://fake-comb.herokuapp.com${product?.image}`}
                           alt={product?.title}
                           className={classes.image}
                         />

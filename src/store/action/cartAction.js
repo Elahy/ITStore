@@ -30,7 +30,7 @@ export const requestAddToCart = (item) => {
       const { signInStore } = getState();
       const token = signInStore.token;
       const response = await axios.post(
-        "http://fake-comb.herokuapp.com/cart",
+        "https://fake-comb.herokuapp.com/cart",
         {
           product: {
             id: id,
@@ -55,7 +55,7 @@ export const requestCheckout = () => {
       const { signInStore } = getState();
       const token = signInStore.token;
       const response = await axios.get(
-        "http://fake-comb.herokuapp.com/order/checkout",
+        "https://fake-comb.herokuapp.com/order/checkout",
         {
           headers: { authorization: `bearer ${token}` },
         }
@@ -74,7 +74,7 @@ export const requestCart = () => {
     try {
       const { signInStore } = getState();
       const token = signInStore.token;
-      const response = await axios.get("http://fake-comb.herokuapp.com/cart", {
+      const response = await axios.get("https://fake-comb.herokuapp.com/cart", {
         headers: { authorization: `bearer ${token}` },
       });
       dispatch(addToCart(response.data));
