@@ -63,7 +63,7 @@ function UpdateProduct() {
       price: currentProduct?.price,
       description: currentProduct?.description,
       stock: currentProduct?.stock,
-      category: currentProduct?.category._id,
+      category: currentProduct?.category,
     });
   }, [currentProduct]);
 
@@ -168,17 +168,13 @@ function UpdateProduct() {
                 helperText="Please select a category"
                 variant="outlined"
               >
-                {console.log(
-                  currentProduct?.category?.name,
-                  "currentProduct?.category?.name"
-                )}
-                {categoryList.map((category) => (
+                {categoryList?.map((category) => (
                   <MenuItem
                     key={category._id}
-                    value={category._id}
-                    // defaultValue={currentProduct?.category.name}
+                    value={category}
+                    defaultValue={currentProduct?.category?.name}
                   >
-                    {category.name}
+                    {category?.name}
                   </MenuItem>
                 ))}
               </TextField>

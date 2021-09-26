@@ -19,7 +19,7 @@ const useStyles = makeStyles({
     alignContent: "center",
     margin: "2% 16%",
     display: "flex",
-    minHeight: "80vh",
+    minHeight: "90vh",
   },
   buttton: {
     color: "#e00067",
