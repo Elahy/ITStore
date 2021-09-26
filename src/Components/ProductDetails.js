@@ -58,6 +58,9 @@ const useStyles = makeStyles({
   butttons: {
     display: "flex",
   },
+  socialMedia: {
+    marginLeft: "45%",
+  },
 });
 
 function ProductList() {
@@ -152,7 +155,10 @@ function ProductList() {
               </div>
             </Grid>
           </Grid>
-          <SocialContainer />
+          <div className={classes.socialMedia}>
+            <p> Share on Social Media! </p>
+            <SocialContainer />
+          </div>
         </>
       )}
     </>
