@@ -7,20 +7,13 @@ import { requestSignIn } from "../store/action/signInAction";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../Components/Miscellaneous/Loader";
 import { setLoaderValue } from "../store/action/loaderAction";
+import SocialContainer from "../Components/Miscellaneous/SocialContainer";
 
 const useStyles = makeStyles({
   container: {
     padding: "0",
     margin: "60px 0",
     borderRadius: "20px",
-  },
-  icon: {
-    width: "35px",
-    margin: "0 5px",
-  },
-  iconf: {
-    width: "45px",
-    margin: "0 5px",
   },
 });
 
@@ -66,29 +59,7 @@ function LoginPage() {
             <Grid item xs={12} lg={4}>
               <form className={styles.formContainer}>
                 <h1 className={styles.header}>Sign in</h1>
-                <div className={styles.socialContainer}>
-                  <Link to="/facebook" className={styles.social}>
-                    <img
-                      className={classes.iconf}
-                      src="./images/facebook.svg"
-                      alt="userIcon"
-                    />
-                  </Link>
-                  <Link to="/facebook" className={styles.social}>
-                    <img
-                      className={classes.icon}
-                      src="./images/google-plus.svg"
-                      alt="userIcon"
-                    />
-                  </Link>
-                  <Link to="/facebook" className={styles.social}>
-                    <img
-                      className={classes.icon}
-                      src="./images/twittericon.svg"
-                      alt="userIcon"
-                    />
-                  </Link>
-                </div>
+                <SocialContainer />
                 <span>or use your account </span>
                 <input
                   className={styles.input}

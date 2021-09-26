@@ -9,17 +9,25 @@ import { useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import { Grid } from "@material-ui/core";
+import Card from "@material-ui/core/Card";
 import { requestProductDetails } from "../store/action/productAction";
 import { setLoaderValue } from "../store/action/loaderAction";
 import AddToCart from "../Components/Cart/AddToCart";
+import SocialContainer from "./Miscellaneous/SocialContainer";
 
 const useStyles = makeStyles({
   root: {
-    width: "67%",
-    alignContent: "center",
-    margin: "2% 16%",
-    display: "flex",
     minHeight: "90vh",
+  },
+  imgCard: {
+    marginTop: "20%",
+  },
+  description: {
+    textAlign: "justify",
+    maxHeight: "400px",
+    // border: "1px solid black",
+    overflow: "scroll",
+    padding: "5%",
   },
   buttton: {
     color: "#e00067",
@@ -31,7 +39,18 @@ const useStyles = makeStyles({
   image: {
     maxWidth: "500px",
     maxHeight: "500px",
-    margin: "5%",
+    margin: "10% 0",
+    paddingLeft: "20%",
+    // border: "1px solid black",
+    // borderRadius: "5%",
+  },
+  image2: {
+    maxWidth: "100px",
+    maxHeight: "100px",
+    // marginLeft: "45%",
+    margin: "5% 5% 5% 45%",
+    border: "1px solid #808080",
+    borderRadius: "5%",
   },
   cardBody: {
     margin: "5%",
@@ -68,51 +87,73 @@ function ProductList() {
       {loaderStore.loader ? (
         <Loader />
       ) : (
-        <Grid container>
-          <Grid item xs={false} lg={2}></Grid>
-          <Grid item xs={false} lg={4}>
-            <CardMedia
-              className={classes.image}
-              component="img"
-              alt={currentProduct?.title}
-              image={`https://fake-comb.herokuapp.com${currentProduct?.image}`}
-              title={currentProduct?.title}
-            />
-          </Grid>
-          <Grid item xs={false} lg={4}>
-            <CardContent className={classes.cardBody}>
-              <Typography gutterBottom variant="h5" component="h2">
-                {currentProduct?.title}
-              </Typography>
-              <Typography
-                gutterBottom
-                variant="body1"
-                color="textSecondary"
-                component="p"
-              >
-                {currentProduct && currentProduct.description}
-              </Typography>
-              <Typography variant="h6" color="textSecondary" component="p">
-                Type: {currentProduct && currentProduct.category.name}
-              </Typography>
-              <Typography variant="h5" color="textPrimary" component="p">
-                Price: {currentProduct && currentProduct.price}Tk
-              </Typography>
-              <div className={classes.butttons}>
-                <AddToCart product={currentProduct} />
-                <Button
-                  onClick={buttonHandler}
-                  className={classes.buttton}
-                  size="medium"
-                  variant="outlined"
-                  color="primary"
-                >
-                  Go Back
-                </Button>
+        <>
+          <Grid container className={classes.root}>
+            <Grid item xs={false} lg={2}></Grid>
+            <Grid item xs={false} lg={4}>
+              <Card className={classes.imgCard}>
+                <CardMedia
+                  className={classes.image}
+                  component="img"
+                  alt={currentProduct?.title}
+                  image={`https://fake-comb.herokuapp.com${currentProduct?.image}`}
+                  title={currentProduct?.title}
+                />
+                <CardMedia
+                  className={classes.image2}
+                  component="img"
+                  alt={currentProduct?.title}
+                  image={`https://fake-comb.herokuapp.com${currentProduct?.image}`}
+                  title={currentProduct?.title}
+                />
+              </Card>
+            </Grid>
+            <Grid item xs={false} lg={4}>
+              <div className={classes.imgCard}>
+                <CardContent className={classes.cardBody}>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    {currentProduct?.title}
+                  </Typography>
+
+                  <Typography variant="h6" color="textSecondary" component="p">
+                    Type: {currentProduct?.category?.name}
+                  </Typography>
+                  <Typography variant="h5" color="textPrimary" component="p">
+                    Price: {currentProduct?.price}Tk
+                  </Typography>
+                  <Typography variant="h6" color="textSecondary" component="p">
+                    Product Details:
+                  </Typography>
+                  <Typography
+                    gutterBottom
+                    variant="body1"
+                    color="textSecondary"
+                    component="p"
+                    className={classes.description}
+                  >
+                    {currentProduct?.description}
+                  </Typography>
+                  <Typography variant="h6" color="textSecondary" component="p">
+                    {currentProduct?.stock} Pices Available
+                  </Typography>
+                  <div className={classes.butttons}>
+                    <AddToCart product={currentProduct} />
+                    <Button
+                      onClick={buttonHandler}
+                      className={classes.buttton}
+                      size="medium"
+                      variant="outlined"
+                      color="primary"
+                    >
+                      Go Back
+                    </Button>
+                  </div>
+                </CardContent>
               </div>
-            </CardContent>
+            </Grid>
           </Grid>
-        </Grid>
+          <SocialContainer />
+        </>
       )}
     </>
   );
