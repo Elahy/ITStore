@@ -6,7 +6,10 @@ import Typography from "@material-ui/core/Typography";
 import Loader from "../../Components/Miscellaneous/Loader";
 import { useDispatch, useSelector } from "react-redux";
 import { setLoaderValue } from "../../store/action/loaderAction";
-import { requestEditCategory } from "../../store/action/categoryAction";
+import {
+  requestCategoryDetails,
+  requestEditCategory,
+} from "../../store/action/categoryAction";
 import { setView } from "../../store/action/userAction";
 
 const useStyles = makeStyles((theme) => ({
@@ -42,8 +45,10 @@ function UpdateCategory(userId) {
   const classes = useStyles();
   const dispatch = useDispatch();
 
-  const { currentCategory } = useSelector((store) => store.categoryStore);
-  console.log(currentCategory, "===currentUser");
+  const { currentCategory, currentCategoryId } = useSelector(
+    (store) => store.categoryStore
+  );
+  console.log(currentCategory, "===currentCategory");
   const { loaderStore } = useSelector((store) => store);
   // console.log(loaderStore.loader, "===loaderStore.loader");
 
@@ -55,6 +60,11 @@ function UpdateCategory(userId) {
       description: currentCategory?.description,
     });
   }, [currentCategory]);
+
+  useEffect(() => {
+    dispatch(setLoaderValue(true));
+    dispatch(requestCategoryDetails(currentCategoryId));
+  }, [dispatch, currentCategoryId]);
 
   const handleChange = (event) => {
     const value = event.target.value;

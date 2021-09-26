@@ -16,7 +16,7 @@ const categoryReducer = (state = initialState, action) => {
     case ActionTypes.SET_CURRENT_CATEGORY:
       return { ...state, currentCategory: action.payload };
     case ActionTypes.SET_CURRENT_CATEGORY_ID:
-      return { ...state, currentCategory: action.payload };
+      return { ...state, currentCategoryId: action.payload };
     case ActionTypes.UPDATE_CATEGORY_LIST:
       return { ...state, categoryList: action.payload };
     case ActionTypes.ADD_CATEGORY:

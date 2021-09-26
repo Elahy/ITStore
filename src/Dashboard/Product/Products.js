@@ -4,8 +4,8 @@ import { useDispatch } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   requestDeleteProduct,
-  requestProductDetails,
   requestProductList,
+  setCurrentProductId,
 } from "../../store/action/productAction";
 import {
   Table,
@@ -83,9 +83,8 @@ function Products() {
     setCurrentPage(pageNumber);
   };
 
-  const updateHandler = (e) => {
-    console.log(e, "==update Event");
-    dispatch(requestProductDetails(e._id));
+  const updateHandler = (productId) => {
+    dispatch(setCurrentProductId(productId));
     dispatch(setView("edit"));
   };
 
@@ -149,7 +148,7 @@ function Products() {
 
                       <TableCell className={classes.buttons}>
                         <img
-                          onClick={() => updateHandler(product)}
+                          onClick={() => updateHandler(product._id)}
                           src="../images/EditIcon.svg"
                           alt="Edit icon"
                           className={classes.EditIcon}

@@ -12,6 +12,11 @@ export const setCurrentProduct = (product) => ({
   payload: product,
 });
 
+export const setCurrentProductId = (productId) => ({
+  type: ActionTypes.SET_CURRENT_PRODUCT_ID,
+  payload: productId,
+});
+
 export const addProduct = (response) => ({
   type: ActionTypes.ADD_PRODUCT,
   payload: response,

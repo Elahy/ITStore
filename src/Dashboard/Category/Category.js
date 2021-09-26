@@ -5,7 +5,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import { setLoaderValue } from "../../store/action/loaderAction";
 import Loader from "../../Components/Miscellaneous/Loader";
 import {
-  requestCategoryDetails,
   requestCategoryList,
   requestDeleteCategory,
   setCurrentCategoryId,
@@ -74,10 +73,9 @@ function Category() {
     dispatch(setLoaderValue(true));
     dispatch(requestCategoryList());
   }, [dispatch, categoryStore.categoryDeleted]);
-  const updateHandler = (e) => {
-    console.log(e, "===event update");
-    dispatch(requestCategoryDetails(e._id));
-    dispatch(setCurrentCategoryId(e._id));
+
+  const updateHandler = (category) => {
+    dispatch(setCurrentCategoryId(category._id));
     dispatch(setView("edit"));
   };
   const deleteHandler = (e) => {
@@ -107,22 +105,22 @@ function Category() {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {currentCategoryList?.map((product) => (
-                  <TableRow hover tabIndex={-1} key={product._id}>
-                    <TableCell key={product?.title}>{product._id}</TableCell>
+                {currentCategoryList?.map((category) => (
+                  <TableRow hover tabIndex={-1} key={category._id}>
+                    <TableCell key={category?._id}>{category._id}</TableCell>
 
-                    <TableCell key={product.quantity}>{product.name}</TableCell>
+                    <TableCell key={category.name}>{category.name}</TableCell>
 
                     <TableCell className={classes.buttons}>
                       <img
-                        onClick={() => updateHandler(product)}
+                        onClick={() => updateHandler(category)}
                         src="../images/EditIcon.svg"
                         alt="Edit icon"
                         className={classes.EditIcon}
                       />
 
                       <img
-                        onClick={() => deleteHandler(product)}
+                        onClick={() => deleteHandler(category)}
                         src="../images/CrossDelete.svg"
                         alt="Delete icon"
                         className={classes.DeleteIcon}

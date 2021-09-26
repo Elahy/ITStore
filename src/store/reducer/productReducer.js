@@ -3,6 +3,7 @@ import { ActionTypes } from "../ActionTypes";
 const initialState = {
   productList: [],
   currentProduct: null,
+  currentProductId: null,
   productEdited: null,
   productDeleted: null,
 };
@@ -13,6 +14,8 @@ const productReducer = (state = initialState, action) => {
       return { ...state, productEdited: action.payload };
     case ActionTypes.SET_CURRENT_PRODUCT:
       return { ...state, currentProduct: action.payload };
+    case ActionTypes.SET_CURRENT_PRODUCT_ID:
+      return { ...state, currentProductId: action.payload };
     case ActionTypes.UPDATE_PRODUCT_LIST:
       return { ...state, productList: action.payload };
     case ActionTypes.DELETE_A_PRODUCT:

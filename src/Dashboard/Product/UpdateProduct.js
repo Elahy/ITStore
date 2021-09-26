@@ -49,7 +49,9 @@ function UpdateProduct() {
   const dispatch = useDispatch();
   // const history = useHistory();
 
-  const { currentProduct } = useSelector((store) => store.productStore);
+  const { currentProduct, currentProductId } = useSelector(
+    (store) => store.productStore
+  );
   console.log(currentProduct, "====currentProduct");
   const { categoryList } = useSelector((store) => store.categoryStore);
   const { loaderStore } = useSelector((store) => store);
@@ -69,9 +71,9 @@ function UpdateProduct() {
 
   useEffect(() => {
     dispatch(setLoaderValue(true));
-    dispatch(requestProductDetails());
+    dispatch(requestProductDetails(currentProductId));
     dispatch(requestCategoryList());
-  }, [dispatch]);
+  }, [dispatch, currentProductId]);
 
   // console.log(product, "===product");
 

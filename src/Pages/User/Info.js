@@ -9,7 +9,7 @@ import {
   setView,
 } from "../../store/action/userAction";
 import {
-  requestUserDetails,
+  // requestUserDetails,
   setCurrentUserId,
 } from "../../store/action/userAction";
 
@@ -56,7 +56,7 @@ function Info() {
   }, [dispatch]);
 
   const handleEditUserInfo = (userInfo) => {
-    dispatch(requestUserDetails(userInfo._id));
+    // dispatch(requestUserDetails(userInfo._id));
     dispatch(setCurrentUserId(userInfo._id));
     dispatch(setView("edit"));
   };

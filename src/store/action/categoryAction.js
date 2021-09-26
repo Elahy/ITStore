@@ -45,6 +45,7 @@ export const requestCategoryList = () => {
 };
 
 export const requestCategoryDetails = (categoryId) => {
+  console.log(categoryId, " requestCategoryDetails Called");
   return async (dispatch) => {
     const response = await axios({
       method: "GET",
