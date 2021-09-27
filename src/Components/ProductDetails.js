@@ -26,8 +26,8 @@ const useStyles = makeStyles({
     textAlign: "justify",
     maxHeight: "400px",
     // border: "1px solid black",
-    overflow: "scroll",
-    padding: "5%",
+    overflow: "auto",
+    padding: "5% 2% 5% 0",
   },
   buttton: {
     color: "#e00067",
