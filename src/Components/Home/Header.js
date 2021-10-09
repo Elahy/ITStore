@@ -19,39 +19,43 @@ const Header = () => {
       <h1 onClick={logoClickHandler} className="logo">
         ITStore
       </h1>
-      <SearchBar />
-      <nav>
-        <ul className="nav_links">
-          <li>
-            <Link to="/products" className="navbtn">
-              Sale!
-            </Link>
-          </li>
-          <li>
-            <Link to="/contact" className="navbtn">
-              Contact
-            </Link>
-          </li>
-          {role === "admin" && (
+      <div className="optional">
+        <SearchBar />
+        <nav>
+          <ul className="nav_links">
             <li>
-              <Link to="/dashboard" className="navbtn">
-                DashBoard
+              <Link to="/products" className="navbtn">
+                Sale!
               </Link>
             </li>
-          )}
-        </ul>
-      </nav>
+            <li>
+              <Link to="/contact" className="navbtn">
+                Contact
+              </Link>
+            </li>
+            {role === "admin" && (
+              <li>
+                <Link to="/dashboard" className="navbtn">
+                  DashBoard
+                </Link>
+              </li>
+            )}
+          </ul>
+        </nav>
+      </div>
       <div className="cartLogo">
         <CartLogo />
-        {role ? (
-          <button className="homebtn" onClick={profileHandler}>
-            Profile
-          </button>
-        ) : (
-          <Link to="/signin" className="homebtn">
-            Sign In
-          </Link>
-        )}
+        <div className="optional">
+          {role ? (
+            <button className="homebtn" onClick={profileHandler}>
+              Profile
+            </button>
+          ) : (
+            <Link to="/signin" className="homebtn">
+              Sign In
+            </Link>
+          )}
+        </div>
       </div>
     </header>
   );

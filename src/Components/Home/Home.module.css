@@ -4,9 +4,12 @@
   position: relative;
 }
 
-.headerhero .headerbg {
+.headerbg {
   width: 100%;
   height: auto;
+}
+.headerbg2 {
+  display: none;
 }
 
 .headerhero .headerbg img {
@@ -112,15 +115,8 @@
 }
 
 @media only screen and (max-width: 1024px) {
-  .header-hero .header-bg {
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-  }
-  .headerhero .headerbg img {
-    width: 100rem;
-    height: 40rem;
-    margin-left: -50%;
+  .headerbg {
+    height: 100%;
   }
   .headerhero .headercontent p.heading1 {
     padding-top: 20vw;
@@ -136,10 +132,16 @@
     font-size: 2rem;
     padding: 1rem 0rem;
   }
-  .headerhero .headerbg img {
-    width: 100rem;
-    height: 40rem;
-    margin-left: -140%;
+  .headerbg {
+    display: none;
+  }
+  .headerbg2 {
+    display: flex;
+    width: 100%;
+  }
+  .headerhero {
+    width: 100%;
+    background-color: rgb(48, 103, 184);
   }
   .headerhero .headercontent p.description {
     width: 50%;

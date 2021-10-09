@@ -13,6 +13,9 @@ function Home() {
         <div className={styles.headerbg}>
           <img src="../images/Boat.jpg" alt="Background" />
         </div>
+        <div className={styles.headerbg2}>
+          <img src="../images/5n500.png" alt="Background" />
+        </div>
         <div className={styles.headercontent}>
           <p className={styles.heading1}>Latest Technology at Best Price!</p>
           <h1>welcome to ITstore!</h1>

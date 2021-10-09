@@ -121,3 +121,9 @@ header {
   opacity: 1;
   text-decoration: underline;
 }
+
+@media only screen and (max-width: 720px) {
+  .optional {
+    display: none;
+  }
+}
