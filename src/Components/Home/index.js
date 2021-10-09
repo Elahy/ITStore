@@ -14,7 +14,7 @@ function Home() {
           <img src="../images/Boat.jpg" alt="Background" />
         </div>
         <div className={styles.headerbg2}>
-          <img src="../images/5n500.png" alt="Background" />
+          <img src="../images/image.jpg" alt="Background" />
         </div>
         <div className={styles.headercontent}>
           <p className={styles.heading1}>Latest Technology at Best Price!</p>

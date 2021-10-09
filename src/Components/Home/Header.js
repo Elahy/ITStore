@@ -21,31 +21,31 @@ const Header = () => {
       </h1>
       <div className="optional">
         <SearchBar />
-        <nav>
-          <ul className="nav_links">
-            <li>
-              <Link to="/products" className="navbtn">
-                Sale!
-              </Link>
-            </li>
-            <li>
-              <Link to="/contact" className="navbtn">
-                Contact
-              </Link>
-            </li>
-            {role === "admin" && (
-              <li>
-                <Link to="/dashboard" className="navbtn">
-                  DashBoard
-                </Link>
-              </li>
-            )}
-          </ul>
-        </nav>
       </div>
+      <nav className="optional">
+        <ul className="nav_links">
+          <li>
+            <Link to="/products" className="navbtn">
+              Sale!
+            </Link>
+          </li>
+          <li>
+            <Link to="/contact" className="navbtn">
+              Contact
+            </Link>
+          </li>
+          {role === "admin" && (
+            <li>
+              <Link to="/dashboard" className="navbtn">
+                DashBoard
+              </Link>
+            </li>
+          )}
+        </ul>
+      </nav>
       <div className="cartLogo">
         <CartLogo />
-        <div className="optional">
+        <div className="optional2">
           {role ? (
             <button className="homebtn" onClick={profileHandler}>
               Profile
