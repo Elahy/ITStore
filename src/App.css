@@ -12,7 +12,6 @@ code {
     monospace;
 }
 .productList {
-  padding: 10px;
   align-content: center;
   position: relative;
   display: inline-block;
@@ -25,7 +24,7 @@ code {
 header {
   box-sizing: border-box;
   margin: 0;
-  padding: 10px 10%;
+  padding: 7px 10%;
   background-color: #24252a;
   display: flex;
   justify-content: space-between;
@@ -81,7 +80,20 @@ header {
 .nav_links li .navbtn:hover {
   color: #06b2c2;
 }
-.homebtn {
+.profile {
+  padding: 0px 20px;
+  background-color: #04b4c4;
+  color: #edf0f1;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: 450;
+  transition: all 0.3s ease 0s;
+  text-decoration: none;
+  margin: 2px 0 0 20px;
+}
+.signin {
   padding: 7px 20px;
   background-color: #04b4c4;
   color: #edf0f1;
@@ -92,9 +104,9 @@ header {
   font-weight: 450;
   transition: all 0.3s ease 0s;
   text-decoration: none;
-  margin: 0 0 0 20px;
+  margin: 3px 0 0 20px;
 }
-.optional2 {
+.signinoption {
   margin-top: 8px;
 }
 .homebtn:hover {

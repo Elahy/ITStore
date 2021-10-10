@@ -23,8 +23,8 @@ import Pagination from "./Pagination";
 
 const useStyles = makeStyles({
   root: {
-    width: 320,
-    margin: "10px 25px",
+    width: "320px",
+    margin: "5% 2.3rem",
   },
   media: {
     height: "320px",
@@ -39,7 +39,7 @@ const useStyles = makeStyles({
     border: "1px solid #04b4c4",
   },
   options: {
-    marginLeft: "190px",
+    marginLeft: "10%",
   },
 });
 

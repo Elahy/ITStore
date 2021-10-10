@@ -47,13 +47,15 @@ const Header = () => {
         <CartLogo />
         <div className="optional2">
           {role ? (
-            <button className="homebtn" onClick={profileHandler}>
+            <button className="profile" onClick={profileHandler}>
               Profile
             </button>
           ) : (
-            <Link to="/signin" className="homebtn">
-              Sign In
-            </Link>
+            <div className="signinoption">
+              <Link to="/signin" className="signin">
+                Sign In
+              </Link>
+            </div>
           )}
         </div>
       </div>

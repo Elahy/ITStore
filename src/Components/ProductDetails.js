@@ -17,15 +17,14 @@ import SocialContainer from "./Miscellaneous/SocialContainer";
 
 const useStyles = makeStyles({
   root: {
-    minHeight: "90vh",
+    minHeight: "80vh",
   },
   imgCard: {
-    marginTop: "20%",
+    margin: "15% 2% 0% 2%",
   },
   description: {
     textAlign: "justify",
-    maxHeight: "400px",
-    // border: "1px solid black",
+    maxHeight: "300px",
     overflow: "auto",
     padding: "5% 2% 5% 0",
   },
@@ -37,23 +36,17 @@ const useStyles = makeStyles({
     padding: "8px 15px",
   },
   image: {
-    maxWidth: "500px",
-    maxHeight: "500px",
+    maxWidth: "450px",
+    maxHeight: "450px",
     margin: "10% 0",
     paddingLeft: "20%",
-    // border: "1px solid black",
-    // borderRadius: "5%",
   },
   image2: {
     maxWidth: "100px",
     maxHeight: "100px",
-    // marginLeft: "45%",
     margin: "5% 5% 5% 45%",
     border: "1px solid #808080",
     borderRadius: "5%",
-  },
-  cardBody: {
-    margin: "5%",
   },
   butttons: {
     display: "flex",
@@ -112,47 +105,46 @@ function ProductList() {
               </Card>
             </Grid>
             <Grid item xs={false} lg={4}>
-              <div className={classes.imgCard}>
-                <CardContent className={classes.cardBody}>
-                  <Typography gutterBottom variant="h5" component="h2">
-                    {currentProduct?.title}
-                  </Typography>
+              {/* <div className={classes.imgCard}> */}
+              <CardContent className={classes.imgCard}>
+                <Typography gutterBottom variant="h5" component="h2">
+                  {currentProduct?.title}
+                </Typography>
 
-                  <Typography variant="h6" color="textSecondary" component="p">
-                    Type: {currentProduct?.category?.name}
-                  </Typography>
-                  <Typography variant="h5" color="textPrimary" component="p">
-                    Price: {currentProduct?.price}Tk
-                  </Typography>
-                  <Typography variant="h6" color="textSecondary" component="p">
-                    Product Details:
-                  </Typography>
-                  <Typography
-                    gutterBottom
-                    variant="body1"
-                    color="textSecondary"
-                    component="p"
-                    className={classes.description}
+                <Typography variant="h6" color="textSecondary" component="p">
+                  Type: {currentProduct?.category?.name}
+                </Typography>
+                <Typography variant="h5" color="textPrimary" component="p">
+                  Price: {currentProduct?.price}Tk
+                </Typography>
+                <Typography variant="h6" color="textSecondary" component="p">
+                  Product Details:
+                </Typography>
+                <Typography
+                  gutterBottom
+                  variant="body1"
+                  color="textSecondary"
+                  component="p"
+                  className={classes.description}
+                >
+                  {currentProduct?.description}
+                </Typography>
+                <Typography variant="h6" color="textSecondary" component="p">
+                  {currentProduct?.stock} Pices Available
+                </Typography>
+                <div className={classes.butttons}>
+                  <AddToCart product={currentProduct} />
+                  <Button
+                    onClick={buttonHandler}
+                    className={classes.buttton}
+                    size="medium"
+                    variant="outlined"
+                    color="primary"
                   >
-                    {currentProduct?.description}
-                  </Typography>
-                  <Typography variant="h6" color="textSecondary" component="p">
-                    {currentProduct?.stock} Pices Available
-                  </Typography>
-                  <div className={classes.butttons}>
-                    <AddToCart product={currentProduct} />
-                    <Button
-                      onClick={buttonHandler}
-                      className={classes.buttton}
-                      size="medium"
-                      variant="outlined"
-                      color="primary"
-                    >
-                      Go Back
-                    </Button>
-                  </div>
-                </CardContent>
-              </div>
+                    Go Back
+                  </Button>
+                </div>
+              </CardContent>
             </Grid>
           </Grid>
           <div className={classes.socialMedia}>
