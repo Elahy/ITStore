@@ -58,7 +58,7 @@ function CartLogo() {
         </Badge>
       </Dropdown.Toggle>
 
-      <Dropdown.Menu style={{ minWidth: 370 }}>
+      <Dropdown.Menu style={{ minWidth: 290 }}>
         {cart?.length > 0 ? (
           <>
             {cart.map((prod) => (
