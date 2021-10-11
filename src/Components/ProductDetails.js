@@ -63,14 +63,11 @@ function ProductList() {
   const param = useParams();
 
   useEffect(() => {
-    console.log("===Console in useEffect1");
     dispatch(setLoaderValue(true));
     dispatch(requestProductDetails(param.id));
-    console.log("===Console in useEffect2");
   }, [dispatch, param.id]);
 
   const { currentProduct } = useSelector((store) => store.productStore);
-  console.log(currentProduct, "===currentProduct");
   const { loaderStore } = useSelector((store) => store);
 
   const buttonHandler = () => {
@@ -105,7 +102,6 @@ function ProductList() {
               </Card>
             </Grid>
             <Grid item xs={false} lg={4}>
-              {/* <div className={classes.imgCard}> */}
               <CardContent className={classes.imgCard}>
                 <Typography gutterBottom variant="h5" component="h2">
                   {currentProduct?.title}
@@ -131,6 +127,9 @@ function ProductList() {
                 </Typography>
                 <Typography variant="h6" color="textSecondary" component="p">
                   {currentProduct?.stock} Pices Available
+                </Typography>
+                <Typography variant="h6" color="textSecondary" component="p">
+                  Quantity: <input />
                 </Typography>
                 <div className={classes.butttons}>
                   <AddToCart product={currentProduct} />
